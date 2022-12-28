@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-func FizzBuzzIt(numbers []int) string {
+func BuzzIt(numbers []int) string {
 	result := ""
 	for _, number := range numbers {
 		result += convertFrom(number)
@@ -18,12 +18,15 @@ func format(result string) string {
 }
 
 func convertFrom(number int) string {
-	switch number {
-	case 5:
-		return "Buzz\n"
-	case 3:
-		return "Fizz\n"
-	default:
-		return strconv.Itoa(number) + "\n"
+	if number%15 == 0 {
+		return "FizzBuzz\n"
 	}
+	if number%5 == 0 {
+		return "Buzz\n"
+	}
+	if number%3 == 0 {
+		return "Fizz\n"
+	}
+	return strconv.Itoa(number) + "\n"
+
 }
